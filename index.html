@@ -296,6 +296,9 @@ firebase.auth().onAuthStateChanged(user => {
                 window.location.href = 'loginauthen.html';
             }
         });
+        if (window.location.pathname === '/' || window.location.pathname.endsWith('index.html')) {
+            window.location.href = 'loginauthen.html';
+        }
 </script>
 </body>
 </html>
