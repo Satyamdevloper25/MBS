@@ -250,55 +250,37 @@ body {
                 }
             }
         }
-    </script><button id="back-to-top" title="Go to top">&#8679;</button>
-    <script>
-  // Get the button
-  let mybutton = document.getElementById("back-to-top");
 
-  // When the user scrolls down 20px from the top of the document, show the button
-  window.onscroll = function() {
-    scrollFunction();
-  };
-
-            
-  function scrollFunction() {
-    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-      mybutton.style.display = "block";
-    } else {
-      mybutton.style.display = "none";
-    }
-  }
-
-  // When the user clicks on the button, scroll to the top of the document
-  mybutton.onclick = function() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-  import { getAuth, signOut } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-auth.js";
-
-const auth = getAuth();
-
-document.getElementById('logout-btn').addEventListener('click', () => {
-  signOut(auth).then(() => {
-    // Sign-out successful
-    alert('Logged out successfully!');
-    window.location.href = 'login.html'; // Redirect to the login page
-  }).catch((error) => {
-    // An error happened
-    console.error(error);
-  });
-});
-firebase.auth().onAuthStateChanged(user => {
-            if (user) {
-                // User is logged in, proceed to the main content
-                document.getElementById('content').style.display = 'block';
-            } else {
-                // User is not logged in, redirect to the login page
+        // Redirect to loginauthen.html if index.html is accessed directly
+        window.addEventListener('load', function() {
+            if (window.location.pathname === '/' || window.location.pathname.endsWith('index.html')) {
                 window.location.href = 'loginauthen.html';
             }
         });
-        if (window.location.pathname === '/' || window.location.pathname.endsWith('index.html')) {
-            window.location.href = 'loginauthen.html';
+    </script>
+    <button id="back-to-top" title="Go to top">&#8679;</button>
+    <script>
+        // Get the button
+        let mybutton = document.getElementById("back-to-top");
+
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function() {
+            scrollFunction();
+        };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                mybutton.style.display = "block";
+            } else {
+                mybutton.style.display = "none";
+            }
         }
-</script>
+
+        // When the user clicks on the button, scroll to the top of the document
+        mybutton.onclick = function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        };
+    </script>
 </body>
 </html>
+
