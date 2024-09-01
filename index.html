@@ -287,7 +287,15 @@ document.getElementById('logout-btn').addEventListener('click', () => {
     console.error(error);
   });
 });
-
+firebase.auth().onAuthStateChanged(user => {
+            if (user) {
+                // User is logged in, proceed to the main content
+                document.getElementById('content').style.display = 'block';
+            } else {
+                // User is not logged in, redirect to the login page
+                window.location.href = 'loginauthen.html';
+            }
+        });
 </script>
 </body>
 </html>
